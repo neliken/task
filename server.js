@@ -12,13 +12,17 @@ app.get("/getData", async (req, res) => {
     try{
         const results = await db.query("SELECT * FROM transaction");
         console.log(results);
+        res.status(200).json({
+            status: "success",
+            results: results.rows.length,
+            data: {
+                restaurants: results.rows,
+            },
+        });
     }catch(error){
-        console.error(error);
+        console.log(error);
     }
-    res.json({
-        status: "succes",
-        data: "info",
-    });
+    
 });
 
 app.get("/api/v1/data/:dataid", (req, res) => {
