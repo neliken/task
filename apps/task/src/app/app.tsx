@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Message } from '@project/api-interfaces';
+import PieRechartComponent from './components/PieRechartComponent';
 
 export const App = () => {
   const [m, setMessage] = useState<Message>({ message: '' });
@@ -13,6 +14,7 @@ export const App = () => {
   return (
     <>
       <div style={{ textAlign: 'center' }}>
+        <PieRechartComponent></PieRechartComponent>
         <h1>Welcome to task!</h1>
         <img
           width="450"

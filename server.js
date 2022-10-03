@@ -9,8 +9,12 @@ app.use(express.json());
 
 app.get("/getData", async (req, res) => {
     
-    const results = await db.query("SELECT * FROM transaction");
-    console.log(results);
+    try{
+        const results = await db.query("SELECT * FROM transaction");
+        console.log(results);
+    }catch(error){
+        console.error(error);
+    }
     res.json({
         status: "succes",
         data: "info",
